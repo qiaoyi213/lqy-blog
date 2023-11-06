@@ -1,0 +1,5 @@
+baseURL = 'https://blog.lqy.one/'
+languageCode = 'zh-TW'
+title = 'LQY Site'
+theme = 'PaperMod'
+
