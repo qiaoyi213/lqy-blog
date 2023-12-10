@@ -31,20 +31,18 @@ languages:
     zh:
       languageName: "English"
       # contentDir: content/english
-      weight: 1
-      profileMode:
-        enabled: true
-        title: Rin's Blog
-        subtitle: "Welcome my blog"
-        imageUrl: "img/logo.gif"
-        imageTitle: 
-        imageWidth: 150
-        imageHeight: 150
-        buttons:
-          - name: 👨🏻‍💻技術
-            url: posts/tech
-          - name: 📕閱讀
-            url: posts/read
+      disabled: false
+      title: Rin's Blog
+      subtitle: "Welcome my blog"
+      imageUrl: "img/logo.gif"
+      imageTitle: 
+      imageWidth: 150
+      imageHeight: 150
+      buttons:
+        - name: 👨🏻‍💻技術
+          url: posts/tech
+        - name: 📕閱讀
+          url: posts/read
 
       menu:
         main:
