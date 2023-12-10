@@ -1,7 +1,7 @@
 baseURL: https://lqy.one/ # 绑定的域名
-title: LQY's Blog
+title: Rin's Blog
 paginate: 10    # 首页每页显示的文章数
-theme: PaperMod # 主题名称，和themes文件夹下的一致
+theme: PaperMod # 主題名稱
 languageCode: zh-tw # en-us
 
 hasCJKLanguage: true # 自动检测是否包含中文日文韩文,如果文章中使用了很多中文引号的话可以开启
@@ -34,8 +34,8 @@ languages:
       weight: 1
       profileMode:
         enabled: true
-        title: LQY's Blog
-        subtitle: "👏🏼欢迎光临寒舍</br>👇联系方式"
+        title: Rin's Blog
+        subtitle: "Welcome my blog"
         imageUrl: "img/logo.gif"
         imageTitle: 
         imageWidth: 150
@@ -53,7 +53,7 @@ languages:
             url: search
             weight: 1
           - identifier: home
-            name: 🏠主页
+            name: 🏠主頁
             url: /
             weight: 2
           - identifier: posts
@@ -69,15 +69,15 @@ languages:
           #   url: categories
           #   weight: 30
           - identifier: tags
-            name: 🔖标签
+            name: 🔖標籤
             url: /tags
             weight: 40
           - identifier: about
-            name: 🙋🏻‍♂️关于
+            name: 🙋關於
             url: /about
             weight: 50
           - identifier: links
-            name: 🤝友链
+            name: 🤝友鏈
             url: /links
             weight: 60
 
@@ -89,7 +89,7 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "这是一个纯粹的博客......"
+    description: "這是一個纯粹的技術部落格......"
     author: Qiao-Yi, Lin
     # author: ["Me", "You"] # multiple authors
 

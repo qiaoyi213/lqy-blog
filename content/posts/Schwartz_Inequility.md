@@ -1,5 +1,7 @@
-+++
-Title: Schwartz Inequility Proof
-+++
+---
+title: "Schwartz Inequility Proof"
+draft: true
+---
+
 
 

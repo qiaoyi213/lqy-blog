@@ -1,6 +1,7 @@
-+++
-Title: Threaded Binary Tree 引線二元樹
-+++
+---
+title: "Threaded Binary Tree 引線二元樹"
+draft: true
+---
 # 動機
 寫這篇的動機是這個地方上課的時候講得很不請出而且資料又比較少，想說寫這篇順便整理清楚這個二元樹在幹嘛。
 
