@@ -1,4 +1,4 @@
-baseURL: https://lqy.one/ # 绑定的域名
+baseURL: https://blog.lqy.one/ # 绑定的域名
 title: Rin's Blog
 paginate: 10    # 首页每页显示的文章数
 theme: PaperMod # 主題名稱
@@ -30,24 +30,25 @@ defaultContentLanguageInSubdir: false
 languages:
     zh:
       languageName: "English"
+      params:
       # contentDir: content/english
-      disabled: false
-      title: Rin's Blog
-      subtitle: "Welcome my blog"
-      imageUrl: "img/logo.gif"
-      imageTitle: 
-      imageWidth: 150
-      imageHeight: 150
-      buttons:
-        - name: 👨🏻‍💻技術
-          url: posts/tech
-        - name: 📕閱讀
-          url: posts/read
+        disabled: false
+        title: Rin's Blog
+        subtitle: "Welcome my blog"
+        imageUrl: "img/logo.gif"
+        imageTitle: 
+        imageWidth: 150
+        imageHeight: 150
+        buttons:
+          - name: 👨🏻‍💻技術
+            url: posts/tech
+          - name: 📕閱讀
+            url: posts/read
 
       menu:
         main:
           - identifier: search
-            name: 🔍搜索
+            name: 🔍搜尋
             url: search
             weight: 1
           - identifier: home
@@ -72,7 +73,7 @@ languages:
             weight: 40
           - identifier: about
             name: 🙋關於
-            url: /about
+            url: https://lqy.one/
             weight: 50
           - identifier: links
             name: 🤝友鏈
