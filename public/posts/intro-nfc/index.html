@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta property="og:title" content="淺談那些五花八門的 NFC 卡片分類" />
+<meta property="og:description" content="起因 相信你一定看過許多自造者（Maker）們拿著各種奇形怪狀的機器去複製門禁卡，並且可以一次複製卡、寫卡，當作一個萬能的門禁卡來用，所以你也想試看看，於是你打開了購物網站想找有沒有類似的裝置，抑或是喜歡手作的你想要嘗試自己製作一款屬於你自己的萬能門禁卡，但當你看到一堆奇怪的專業名詞時，你呆住了，什麼 NFC、125 KHz、UUID、UID、加密卡、非加密卡等等⋯⋯，你肯定很是困惑。於是，本文就來介紹那些讓你覺得混亂的專業名詞，如果你想投入關於門禁卡或 NFC 的開發，那這篇文章你肯定看對了。
+NFC 與 RFID 之間的關係 NFC，是近場通訊 Near-field communication 的縮寫，顧名思義，他的使用場景是裝置間近距離（幾公分）的通訊協定(Communications Protocol)，已經在生活中處處可見，你常用來搭公車、捷運的悠遊卡、信用卡、手機上的行動支付（Apple Pay、Google Pay&hellip;&hellip;）以及有些耳機的接觸式配對都是採用 NFC 這個通訊協定。
+NFC 是一個基於 RFID 技術的通訊協定。RFID 是 Radio-frequency identification 的縮寫，是一種無線通訊技術，是透過無線電以特定頻率的電磁場將訊號與資料傳送出去的技術，例如著名服飾品牌 Uniqlo 的自助結帳功能就是在產品內放入 RFID 標籤，使得在範圍內的商品不需一件件掃描條碼就可以快速的辨識商品跟價格完成自助結帳。
+注意：RFID 是一種技術！NFC 是一種協定，基於 RFID 技術的協定，可以讓使用相同協定的應用可以無阻的互相溝通。
+門禁卡 門禁卡當中有分成許多卡片" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.lqy.one/posts/intro-nfc/" /><meta property="article:section" content="posts" />
+
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="淺談那些五花八門的 NFC 卡片分類"/>
+<meta name="twitter:description" content="起因 相信你一定看過許多自造者（Maker）們拿著各種奇形怪狀的機器去複製門禁卡，並且可以一次複製卡、寫卡，當作一個萬能的門禁卡來用，所以你也想試看看，於是你打開了購物網站想找有沒有類似的裝置，抑或是喜歡手作的你想要嘗試自己製作一款屬於你自己的萬能門禁卡，但當你看到一堆奇怪的專業名詞時，你呆住了，什麼 NFC、125 KHz、UUID、UID、加密卡、非加密卡等等⋯⋯，你肯定很是困惑。於是，本文就來介紹那些讓你覺得混亂的專業名詞，如果你想投入關於門禁卡或 NFC 的開發，那這篇文章你肯定看對了。
+NFC 與 RFID 之間的關係 NFC，是近場通訊 Near-field communication 的縮寫，顧名思義，他的使用場景是裝置間近距離（幾公分）的通訊協定(Communications Protocol)，已經在生活中處處可見，你常用來搭公車、捷運的悠遊卡、信用卡、手機上的行動支付（Apple Pay、Google Pay&hellip;&hellip;）以及有些耳機的接觸式配對都是採用 NFC 這個通訊協定。
+NFC 是一個基於 RFID 技術的通訊協定。RFID 是 Radio-frequency identification 的縮寫，是一種無線通訊技術，是透過無線電以特定頻率的電磁場將訊號與資料傳送出去的技術，例如著名服飾品牌 Uniqlo 的自助結帳功能就是在產品內放入 RFID 標籤，使得在範圍內的商品不需一件件掃描條碼就可以快速的辨識商品跟價格完成自助結帳。
+注意：RFID 是一種技術！NFC 是一種協定，基於 RFID 技術的協定，可以讓使用相同協定的應用可以無阻的互相溝通。
+門禁卡 門禁卡當中有分成許多卡片"/>
+
+  
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262d33">
+  <title>
+    
+    LQY&#39;s Blog - 淺談那些五花八門的 NFC 卡片分類
+    
+  </title>
+  
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  
+  
+  
+  <link rel="stylesheet" href="/minima.8b8fe1b3a00b31fff2d6431976edefe3fcdd9f39cfd6f06d9ffbbd7a77cf9b92.css" integrity="sha256-i4/hs6ALMf/y1kMZdu3v4/zdnznP1vBtn/u9enfPm5I=">
+  
+  
+  
+  <script defer type="text/javascript" src="/minima.818a9098599cb46a5c6055b5c8375475dd59f62d042d1f7623e743acaed86d2f.js" integrity="sha256-gYqQmFmctGpcYFW1yDdUdd1Z9i0ELR92I&#43;dDrK7YbS8="></script>
+  
+  
+  
+</head>
+<script>
+  
+  const default_theme_config = 'light'
+  const default_light_theme = default_theme_config === 'system' ? 'light' : default_theme_config;
+  let default_theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : default_light_theme;
+
+  try {
+    const saved_theme = localStorage.getItem('theme')
+    if (saved_theme) {
+      default_theme = saved_theme === default_light_theme ? saved_theme : default_light_theme;  
+    }
+    localStorage.setItem('theme', default_theme);
+    window.minima_theme = default_theme;
+    document.querySelector('html').classList.add(default_theme);
+  } catch (e) {
+    console.error(e);
+  }
+</script>
+
+
+
+<body>
+  <header class="mt-3 mb-6">
+  <div class="container mx-auto">
+    <nav class="flex justify-between items-center">
+      <div class="flex items-center">
+        
+        <div id="theme-switch" class="text-3xl cursor-pointer">🌝</div>
+      </div>
+      <ul class="flex items-center text-base font-bold
+        whitespace-nowrap overflow-x-auto overflow-y-hidden">
+        
+        <li class="ml-2 mr-2"><a href="/tags">標籤</a></li>
+        
+        <li class="ml-2 mr-2"><a href="/series">系列</a></li>
+        
+        <li class="ml-2 mr-2"><a href="/search">🔍</a></li>
+        
+      </ul>
+      <ul class="flex item-center text-sm font-bold">
+        
+        <li class="ml-2"><a href="https://blog.lqy.one/en/">EN</a></li>
+        
+        <li class="ml-2"><a href="https://blog.lqy.one/">正體中文</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  
+<div class="container mx-auto">
+  <h1 class="text-4xl font-extrabold mt-6 mb-6">淺談那些五花八門的 NFC 卡片分類</h1>
+  <div class="mb-3 text-sm flex justify-between ">
+    <div>
+      
+      發佈於 &mdash; 0001 年 01 月 01 日
+      
+      
+      <span class="ml-3 tag">
+        DRAFT
+      </span>
+      
+    </div>
+    
+  </div>
+  <main class="mb-8">
+    <p></p>
+    <article class="md">
+      <h1 id="起因">起因</h1>
+<p>相信你一定看過許多自造者（Maker）們拿著各種奇形怪狀的機器去複製門禁卡，並且可以一次複製卡、寫卡，當作一個萬能的門禁卡來用，所以你也想試看看，於是你打開了購物網站想找有沒有類似的裝置，抑或是喜歡手作的你想要嘗試自己製作一款屬於你自己的萬能門禁卡，但當你看到一堆奇怪的專業名詞時，你呆住了，什麼 NFC、125 KHz、UUID、UID、加密卡、非加密卡等等⋯⋯，你肯定很是困惑。於是，本文就來介紹那些讓你覺得混亂的專業名詞，如果你想投入關於門禁卡或 NFC 的開發，那這篇文章你肯定看對了。</p>
+<h1 id="nfc-與-rfid-之間的關係">NFC 與 RFID 之間的關係</h1>
+<p>NFC，是近場通訊 Near-field communication 的縮寫，顧名思義，他的使用場景是裝置間近距離（幾公分）的<strong>通訊協定</strong>(Communications Protocol)，已經在生活中處處可見，你常用來搭公車、捷運的悠遊卡、信用卡、手機上的行動支付（Apple Pay、Google Pay&hellip;&hellip;）以及有些耳機的接觸式配對都是採用 NFC 這個通訊協定。</p>
+<p>NFC 是一個基於 RFID 技術的通訊協定。RFID 是 Radio-frequency identification 的縮寫，是一種<strong>無線通訊技術</strong>，是透過無線電以特定頻率的電磁場將訊號與資料傳送出去的技術，例如著名服飾品牌 Uniqlo 的自助結帳功能就是在產品內放入 RFID 標籤，使得在範圍內的商品不需一件件掃描條碼就可以快速的辨識商品跟價格完成自助結帳。</p>
+<p><strong>注意</strong>：RFID 是一種技術！NFC 是一種協定，基於 RFID 技術的協定，可以讓使用相同協定的應用可以無阻的互相溝通。</p>
+<h1 id="門禁卡">門禁卡</h1>
+<p>門禁卡當中有分成許多卡片</p>
+
+    </article>
+  </main>
+  
+
+
+
+
+
+<div id="comment"></div>
+
+
+
+
+<script>
+    const s = document.createElement("script")
+    s.src = "https://giscus.app/client.js"
+    s.crossOrigin = "anonymous"
+    s.async = true
+    s.setAttribute("data-repo", "mivinci\/hugo-theme-minima")
+    s.setAttribute("data-repo-id", "MDEwOlJlcG9zaXRvcnkzODcxMjM2NDU=")
+    s.setAttribute("data-category", "Comments")
+    s.setAttribute("data-category-id", "DIC_kwDOFxMJvc4CScQm")
+    s.setAttribute("data-mapping", "pathname")
+    s.setAttribute("data-strict", "0")
+    s.setAttribute("data-reactions-enabled", "1")
+    s.setAttribute("data-emit-metadata", "0")
+    s.setAttribute("data-input-position", "buttom")
+    s.setAttribute("data-theme", window.minima_theme + "_protanopia")
+    s.setAttribute("data-lang", "en")
+    s.setAttribute("data-loading", "lazy")
+    document.getElementById("comment").appendChild(s)
+</script>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+  <footer class="mt-8 mb-8">
+  <div class="container mx-auto">
+    <div class="mt-8 flex flex-col-reverse sm:flex-row sm:justify-between items-center">
+      <div class="text-center sm:text-left">
+        <p class="mt-0 text-sm">© 2020-2023 X</p>
+        <p class="mt-0 text-xs">
+          Built with <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a> v0.124.1
+          and <a href="https://github.com/mivinci/hugo-theme-minima" target="_blank" rel="noopener noreferrer">Minima</a>
+        </p>
+      </div>
+      
+      <p class="flex items-center mt-0">
+        
+          <a class="icon ml-1 mr-1" href="https://twitter.com/realmivinci" title="twitter">
+          
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          
+          </a>
+        
+          <a class="icon ml-1 mr-1" href="mailto:mivinci@qq.com" title="email">
+          
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          
+          </a>
+        
+          <a class="icon ml-1 mr-1" href="https://github.com/mivinci/hugo-theme-minima" title="github">
+          
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          
+          </a>
+        
+          <a class="icon ml-1 mr-1" href="/index.xml" title="rss">
+          
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+          
+          </a>
+        
+      </p>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

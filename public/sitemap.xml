@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://lqy.one/posts/hello/</loc>
-    <lastmod>2023-11-06T12:58:18+08:00</lastmod>
-  </url><url>
-    <loc>https://lqy.one/posts/</loc>
-    <lastmod>2023-11-06T12:58:18+08:00</lastmod>
-  </url><url>
-    <loc>https://lqy.one/</loc>
-    <lastmod>2023-11-06T12:58:18+08:00</lastmod>
-  </url><url>
-    <loc>https://lqy.one/about/</loc>
-  </url><url>
-    <loc>https://lqy.one/categories/</loc>
-  </url><url>
-    <loc>https://lqy.one/series/</loc>
-  </url><url>
-    <loc>https://lqy.one/tags/</loc>
-  </url><url>
-    <loc>https://lqy.one/archives/</loc>
-  </url><url>
-    <loc>https://lqy.one/search/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>http://localhost:1313/zh-tw/sitemap.xml</loc>
+    
+      <lastmod>2023-11-08T04:07:17+08:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>http://localhost:1313/en/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>
