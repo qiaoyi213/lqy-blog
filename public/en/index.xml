@@ -4,9 +4,8 @@
     <title>LQY&#39;s Blog</title>
     <link>http://localhost:1313/en/</link>
     <description>Recent content on LQY&#39;s Blog</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2020-2023 X</copyright>
-    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2020-2023 X</copyright><atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
